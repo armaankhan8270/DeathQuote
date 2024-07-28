@@ -1,8 +1,11 @@
 import mongoose from "mongoose";
 // lib/db.js
-const MONGODB_URI =
-  "mongodb+srv://armaankhan:armaan242@cluster0.ygbfntv.mongodb.net/hospital?retryWrites=true&w=majority";
+import dotenv from "dotenv";
 
+dotenv.config();
+
+const MONGODB_URI = process.env.MONGODB_URI;
+console.log(MONGODB_URI);
 export const connectDB = async () => {
   try {
     await mongoose.connect(MONGODB_URI, {
